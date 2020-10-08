@@ -7,7 +7,7 @@ import org.junit.Assert.*
 class DistanceConverterTest {
 
     private lateinit var parsec : Parsec
-    private lateinit var converter: DistanceConverter
+    private lateinit var converter : DistanceConverter
 
     @Test
     fun convert() {
