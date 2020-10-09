@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="parsec">3.0857e16</string>
+    <string name="kilometer">1.0e3</string>
+    <string name="lightyear">9.460730472580800e15</string>
+    <string name="au">149.5978707e9</string>
+    <string name="lightspeed">2.99792458e8</string>
+</resources>

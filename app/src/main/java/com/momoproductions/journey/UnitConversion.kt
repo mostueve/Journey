@@ -10,6 +10,11 @@ abstract class Converter {
     abstract fun convert(n : Double) : Double
 }
 
+// TODO
+/**
+ * add other measures
+ */
+
 class Parsec : DistanceConversion {
     // Concrete Strategy
     val conversionFactor = 3.0857e16

@@ -4,6 +4,11 @@ import kotlin.math.pow
 
 class WarpfactorCalculator {
 
+    // TODO
+    /**
+     * move to Converter
+     */
+
     val LIGHTSPEED = 299_792_458.0
 
     fun calculateNormal(warpfactor : Double) : Double  {

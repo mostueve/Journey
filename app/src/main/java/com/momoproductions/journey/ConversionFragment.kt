@@ -8,6 +8,17 @@ import android.view.ViewGroup
 
 
 class ConversionFragment : Fragment() {
+    // TODO
+    /**
+     * Layout:
+     *  - Units Spinner
+     *  - Fields for all units
+     *
+     * Implementation:
+     *  - select one unit in Spinner
+     *  - calculate all other unit equivalents
+     *  - display in corresponding fields
+     */
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)

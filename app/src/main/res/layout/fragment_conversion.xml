@@ -11,4 +11,9 @@
         android:layout_height="match_parent"
         android:text="@string/hello_blank_fragment" />
 
+    <Spinner
+        android:id="@+id/spinner"
+        android:layout_width="257dp"
+        android:layout_height="wrap_content" />
+
 </FrameLayout>
