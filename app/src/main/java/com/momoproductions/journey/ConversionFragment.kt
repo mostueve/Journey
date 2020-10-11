@@ -67,7 +67,7 @@ class ConversionFragment : Fragment(), AdapterView.OnItemSelectedListener {
         val view =  inflater.inflate(R.layout.fragment_conversion, container, false)
         buildSpinner(view)
 
-        input_field_conversion.setText("1.0", TextView.BufferType.EDITABLE)
+        //input_field_conversion.setText("1.0", TextView.BufferType.EDITABLE)
 
         return view
     }
@@ -91,6 +91,9 @@ class ConversionFragment : Fragment(), AdapterView.OnItemSelectedListener {
         spinner.onItemSelectedListener = this
     }
 
+    // Problem:
+    //  when changing the value and trying to convert to the same
+    //  unit as is already selected ...
     override fun onItemSelected(parent: AdapterView<*>, view: View?, pos: Int, id: Long) {
 
         val selectedItem = parent.getItemAtPosition(pos).toString()
@@ -111,8 +114,6 @@ class ConversionFragment : Fragment(), AdapterView.OnItemSelectedListener {
         //var amount_as_double = 1.0
         var amount_as_double : Double? = amount_as_string?.toDouble()
         runConverter(selectedItem, amount_as_double)
-
-
     }
 
     override fun onNothingSelected(parent: AdapterView<*>) {
