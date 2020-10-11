@@ -1,14 +1,13 @@
 package com.momoproductions.journey
 
 import android.os.Bundle
+import android.text.Editable
+import android.text.TextWatcher
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.AdapterView
-import android.widget.ArrayAdapter
-import android.widget.Spinner
-import android.widget.TextView
-import androidx.core.widget.addTextChangedListener
+import android.widget.*
+import androidx.core.widget.doAfterTextChanged
 import androidx.fragment.app.Fragment
 import kotlinx.android.synthetic.main.fragment_conversion.*
 
@@ -34,6 +33,10 @@ class ConversionFragment : Fragment(), AdapterView.OnItemSelectedListener {
 
     private lateinit var unitDictionary : HashMap<String, DistanceConversion>
 
+    private var currentSelectedUnit: String = "Parsec"
+    private var currentEnteredAmount: Double = 0.0
+
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
@@ -50,9 +53,6 @@ class ConversionFragment : Fragment(), AdapterView.OnItemSelectedListener {
         unitDictionary.put("AU", astronomicalUnit)
         unitDictionary.put("Meter", meter)
 
-
-
-
     }
 
 //    inline fun <reified T,  reified E> checkType(toCheck: T, substituteType: E) : Boolean {
@@ -63,15 +63,29 @@ class ConversionFragment : Fragment(), AdapterView.OnItemSelectedListener {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        // Inflate the layout for this fragment
         val view =  inflater.inflate(R.layout.fragment_conversion, container, false)
         buildSpinner(view)
-
-        //input_field_conversion.setText("1.0", TextView.BufferType.EDITABLE)
 
         return view
     }
 
+    // add the conversion input field Listener here
+    // since the element has to be fully loaded!
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+
+        input_field_conversion.doAfterTextChanged {
+            var amount_as_string : String? = input_field_conversion?.text.toString()
+            if (amount_as_string == "" || amount_as_string == null) {
+                amount_as_string = "1.0"
+            }
+
+            val amount_as_double : Double = amount_as_string.toDouble()
+            this.currentEnteredAmount = amount_as_double
+
+            runConverter()
+        }
+    }
 
     fun buildSpinner(view: View) {
         val spinner: Spinner = view.findViewById(R.id.distance_measures_spinner)
@@ -91,13 +105,9 @@ class ConversionFragment : Fragment(), AdapterView.OnItemSelectedListener {
         spinner.onItemSelectedListener = this
     }
 
-    // Problem:
-    //  when changing the value and trying to convert to the same
-    //  unit as is already selected ...
     override fun onItemSelected(parent: AdapterView<*>, view: View?, pos: Int, id: Long) {
 
         val selectedItem = parent.getItemAtPosition(pos).toString()
-        System.out.println("Selected Item: " + selectedItem.toString())
 
         // get input value
         // get selected unit
@@ -106,21 +116,43 @@ class ConversionFragment : Fragment(), AdapterView.OnItemSelectedListener {
         // switch case for selection of input unit
 
         // input_field_conversion.setText("1.0", TextView.BufferType.EDITABLE)
-        var amount_as_string : String? = input_field_conversion?.text.toString()
+        // move into function
+        var amount_as_string : String? = input_field_conversion.text.toString()
         if (amount_as_string == "" || amount_as_string == null) {
             amount_as_string = "1.0"
         }
-        System.out.println(amount_as_string)
-        //var amount_as_double = 1.0
-        var amount_as_double : Double? = amount_as_string?.toDouble()
-        runConverter(selectedItem, amount_as_double)
+        val amount_as_double : Double = amount_as_string.toDouble()
+
+        this.currentEnteredAmount = amount_as_double
+        this.currentSelectedUnit = selectedItem
+
+        runConverter()
+        //runConverter(selectedItem, amount_as_double)
     }
 
     override fun onNothingSelected(parent: AdapterView<*>) {
         // Another interface callback
     }
 
-    fun runConverter(selectedItem : String, amount : Double?) {
+    fun runConverter() {
+        val inputUnit = unitDictionary.get(this.currentSelectedUnit)
+        for (dictEntry in unitDictionary) {
+            val currentItem = unitDictionary.get(dictEntry.key)
+            if (inputUnit != null && currentItem != null) {
+                val converter = DistanceConverter(inputUnit, currentItem)
+                val convertedValue = this.currentEnteredAmount.let { converter.convert(it) }
+                when (dictEntry.key) {
+                    "Parsec" -> result_field_parsec?.setText(convertedValue.toString())
+                    "Lightyear" -> result_field_lightyear?.setText(convertedValue.toString())
+                    "Meter" -> result_field_meter?.setText(convertedValue.toString())
+                    "Kilometer" -> result_field_kilometer?.setText(convertedValue.toString())
+                    "AU" -> result_field_astronomicalunit?.setText(convertedValue.toString())
+                }
+            }
+        }
+    }
+
+    fun runConverterOld(selectedItem : String, amount : Double?) {
 
         var inputUnit = unitDictionary.get(selectedItem)
         for (dictEntry in unitDictionary) {
@@ -139,6 +171,5 @@ class ConversionFragment : Fragment(), AdapterView.OnItemSelectedListener {
             }
         }
     }
-
 
 }

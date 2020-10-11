@@ -13,13 +13,11 @@ class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.bottom_navigation)
-        // testing resource
-        var parsec = getResources().getString(R.string.parsec)
-        System.out.println(parsec)
-        //parsec.toBigDecimal()
 
         // TODO
         /**
+         * automatic keyboard deflate
+         *
          * navigation code:
          *  - navHostFragment
          *  - function + when
@@ -43,40 +41,6 @@ class MainActivity : AppCompatActivity() {
         setupActionBarWithNavController(navController, appBarConfiguration)
         navView.setupWithNavController(navController)
 
-//        BottomNavigationView.OnNavigationItemSelectedListener { item ->
-//            when(item.itemId) {
-//                R.id.item1 -> {
-//
-//                    true
-//                }
-//                R.id.item2 -> {
-//                    // Respond to navigation item 2 click
-//                    true
-//                }
-//                else -> false
-//            }
-//        }
-
-        /**
-         * Example code for Bottom nav:
-         *
-         * override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-        setContentView(R.layout.bottom_navigation)
-        val navView: BottomNavigationView = findViewById(R.id.nav_view)
-
-        val navController = findNavController(R.id.nav_host_fragment)
-        // Passing each menu ID as a set of Ids because each
-        // menu should be considered as top level destinations.
-        val appBarConfiguration = AppBarConfiguration(
-        setOf(
-        R.id.mainFragment, R.id.journeyFragment, R.id.conversionFragment, R.id.infoFragment
-        )
-        )
-        setupActionBarWithNavController(navController, appBarConfiguration)
-        navView.setupWithNavController(navController)
-        }
-         */
     }
 
 
