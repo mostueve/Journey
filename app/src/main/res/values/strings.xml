@@ -1,5 +1,16 @@
 <resources>
     <string name="app_name">Journey</string>
-    <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="title_activity_bottom_nav_example_code">MainActivity</string>
+    <string name="title_home">Main screen</string>
+    <string name="title_info_fragment">About this app</string>
+    <string name="title_conversion_fragment">Convert all the things!</string>
+    <string name="title_journey_fragment">Go on the next journey</string>
+    <string name="info_text_conversion">Select a distance unit and enter a factor</string>
+    <string name="label_text_parsec">Parsec</string>
+    <string name="label_text_lightyear">Lightyear</string>
+    <string name="label_text_meter">Meter</string>
+    <string name="label_text_astronomicalunit">AU</string>
+    <string name="label_text_kilometer">Kilometer</string>
+    <string name="info_text">Welcome to the Journey App! With this app, you can convert interstellar distance measures, like parsecs and lightyears, into one another. Furthermore, you can calculate how long a journey will take, given a distance and speed. You can also choose from some of the known locations in the Milky Way Galaxy. </string>
 </resources>

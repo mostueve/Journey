@@ -10,14 +10,59 @@ abstract class Converter {
     abstract fun convert(n : Double) : Double
 }
 
-// TODO
-/**
- * add other measures
- */
-
 class Parsec : DistanceConversion {
     // Concrete Strategy
-    val conversionFactor = 3.0857e16
+    private val conversionFactor = 3.0857e16
+
+    override fun fromMeter(n : Double): Double {
+        return n * conversionFactor
+    }
+
+    override fun toMeter(n : Double): Double {
+        return n / conversionFactor
+    }
+}
+
+class Lightyear : DistanceConversion {
+    // Concrete Strategy
+    private val conversionFactor = 9.4607304725808e15
+
+    override fun fromMeter(n : Double): Double {
+        return n * conversionFactor
+    }
+
+    override fun toMeter(n : Double): Double {
+        return n / conversionFactor
+    }
+}
+
+class AstronomicalUnit : DistanceConversion {
+    // Concrete Strategy
+    private val conversionFactor = 149.5978707e16
+
+    override fun fromMeter(n : Double): Double {
+        return n * conversionFactor
+    }
+
+    override fun toMeter(n : Double): Double {
+        return n / conversionFactor
+    }
+}
+
+class Kilometer : DistanceConversion {
+    private val conversionFactor = 1.0e3
+
+    override fun fromMeter(n : Double): Double {
+        return n * conversionFactor
+    }
+
+    override fun toMeter(n : Double): Double {
+        return n / conversionFactor
+    }
+}
+
+class Meter : DistanceConversion {
+    private val conversionFactor = 1.0
 
     override fun fromMeter(n : Double): Double {
         return n * conversionFactor
@@ -34,8 +79,8 @@ class DistanceConverter constructor(
 
     // Context (= Composition)
 
-    private lateinit var converterInput : DistanceConversion
-    private lateinit var converterOutput : DistanceConversion
+    private var converterInput : DistanceConversion
+    private var converterOutput : DistanceConversion
 
     init {
         this.converterInput = converterInput
@@ -43,7 +88,6 @@ class DistanceConverter constructor(
     }
 
     override fun convert(n: Double): Double {
-        // check again, good Sir.
-        return converterOutput.fromMeter(converterInput.toMeter(n))
+        return converterOutput.toMeter(converterInput.fromMeter(n))
     }
 }

@@ -1,19 +1,144 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:gravity="center"
     tools:context=".ConversionFragment">
 
-    <!-- TODO: Update blank fragment layout -->
+
     <TextView
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:text="@string/hello_blank_fragment" />
+        android:id="@+id/conversion_info_text"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/info_text_conversion"
+        android:padding="12dp">
+
+    </TextView>
+
+    <EditText
+        android:id="@+id/input_field_conversion"
+        android:layout_width="200dp"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/conversion_info_text"
+        android:layout_alignBaseline="@+id/distance_measures_spinner"
+        android:autofillHints="Enter unit factor"
+        android:inputType="numberDecimal"
+        android:padding="16dp" />
 
     <Spinner
-        android:id="@+id/spinner"
-        android:layout_width="257dp"
-        android:layout_height="wrap_content" />
+        android:id="@+id/distance_measures_spinner"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:padding="24dp"
+        android:layout_below="@id/conversion_info_text"
+        android:layout_toRightOf="@id/input_field_conversion"
+        android:layout_toEndOf="@id/input_field_conversion" />
 
-</FrameLayout>
+
+    <LinearLayout
+        android:id="@+id/layout_conversion_labels"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:gravity="center_vertical"
+        android:orientation="vertical"
+        android:padding="24dp"
+        android:weightSum="4.0"
+        android:layout_below="@id/distance_measures_spinner">
+
+        <TextView
+            android:id="@+id/parsec_label"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:paddingVertical="12dp"
+            android:text="@string/label_text_parsec" />
+
+
+        <TextView
+            android:id="@+id/lightyear_label"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:paddingVertical="12dp"
+            android:text="@string/label_text_lightyear" />
+
+        <TextView
+            android:id="@+id/au_label"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:paddingVertical="12dp"
+            android:text="@string/label_text_astronomicalunit" />
+
+        <TextView
+            android:id="@+id/kilometer_label"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:paddingVertical="12dp"
+            android:text="@string/label_text_kilometer" />
+
+        <TextView
+            android:id="@+id/meter_label"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:paddingVertical="12dp"
+            android:text="@string/label_text_meter" />
+
+    </LinearLayout>
+
+
+    <LinearLayout
+        android:id="@+id/layout_conversion_result"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:gravity="center_vertical"
+        android:orientation="vertical"
+        android:padding="24dp"
+        android:weightSum="4.0"
+        android:layout_toRightOf="@+id/layout_conversion_labels"
+        android:layout_below="@id/distance_measures_spinner"
+        android:layout_toEndOf="@+id/layout_conversion_labels">
+
+        <TextView
+            android:id="@+id/result_field_parsec"
+            android:layout_width="220dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:paddingVertical="12dp" />
+
+        <TextView
+            android:id="@+id/result_field_lightyear"
+            android:layout_width="220dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:paddingVertical="12dp"/>
+
+        <TextView
+            android:id="@+id/result_field_astronomicalunit"
+            android:layout_width="220dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:paddingVertical="12dp" />
+
+        <TextView
+            android:id="@+id/result_field_kilometer"
+            android:layout_width="220dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:paddingVertical="12dp"/>
+
+        <TextView
+            android:id="@+id/result_field_meter"
+            android:layout_width="220dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:paddingVertical="12dp"/>
+
+    </LinearLayout>
+
+
+</RelativeLayout>
+

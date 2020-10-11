@@ -2,11 +2,18 @@ package com.momoproductions.journey
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import com.google.android.material.bottomnavigation.BottomNavigationView
+import androidx.navigation.findNavController
+import androidx.navigation.ui.AppBarConfiguration
+import androidx.navigation.ui.setupActionBarWithNavController
+import androidx.navigation.ui.setupWithNavController
+
 
 class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_main)
+        setContentView(R.layout.bottom_navigation)
+        // testing resource
         var parsec = getResources().getString(R.string.parsec)
         System.out.println(parsec)
         //parsec.toBigDecimal()
@@ -19,5 +26,58 @@ class MainActivity : AppCompatActivity() {
          *  - tabbed or bottom nav?
          *  - everything happens in fragments
          */
+
+        val navView: BottomNavigationView = findViewById(R.id.nav_view)
+
+        val navController = findNavController(R.id.nav_host_fragment)
+        // Passing each menu ID as a set of Ids because each
+        // menu should be considered as top level destinations.
+        val appBarConfiguration = AppBarConfiguration(
+            setOf(
+                R.id.mainFragment,
+                R.id.journeyFragment,
+                R.id.conversionFragment,
+                R.id.infoFragment
+            )
+        )
+        setupActionBarWithNavController(navController, appBarConfiguration)
+        navView.setupWithNavController(navController)
+
+//        BottomNavigationView.OnNavigationItemSelectedListener { item ->
+//            when(item.itemId) {
+//                R.id.item1 -> {
+//
+//                    true
+//                }
+//                R.id.item2 -> {
+//                    // Respond to navigation item 2 click
+//                    true
+//                }
+//                else -> false
+//            }
+//        }
+
+        /**
+         * Example code for Bottom nav:
+         *
+         * override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        setContentView(R.layout.bottom_navigation)
+        val navView: BottomNavigationView = findViewById(R.id.nav_view)
+
+        val navController = findNavController(R.id.nav_host_fragment)
+        // Passing each menu ID as a set of Ids because each
+        // menu should be considered as top level destinations.
+        val appBarConfiguration = AppBarConfiguration(
+        setOf(
+        R.id.mainFragment, R.id.journeyFragment, R.id.conversionFragment, R.id.infoFragment
+        )
+        )
+        setupActionBarWithNavController(navController, appBarConfiguration)
+        navView.setupWithNavController(navController)
+        }
+         */
     }
+
+
 }
