@@ -17,12 +17,6 @@ class MainActivity : AppCompatActivity() {
         // TODO
         /**
          * automatic keyboard deflate
-         *
-         * navigation code:
-         *  - navHostFragment
-         *  - function + when
-         *  - tabbed or bottom nav?
-         *  - everything happens in fragments
          */
 
         val navView: BottomNavigationView = findViewById(R.id.nav_view)

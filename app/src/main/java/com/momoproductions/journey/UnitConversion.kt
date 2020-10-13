@@ -38,7 +38,7 @@ class Lightyear : DistanceConversion {
 
 class AstronomicalUnit : DistanceConversion {
     // Concrete Strategy
-    private val conversionFactor = 149.5978707e16
+    private val conversionFactor = 1.495978707e11
 
     override fun fromMeter(n : Double): Double {
         return n * conversionFactor
@@ -78,7 +78,6 @@ class DistanceConverter constructor(
     converterOutput : DistanceConversion) : Converter() {
 
     // Context (= Composition)
-
     private var converterInput : DistanceConversion
     private var converterOutput : DistanceConversion
 
