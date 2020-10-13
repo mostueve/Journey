@@ -1,4 +1,4 @@
-package com.momoproductions.journey
+package journey
 
 interface DistanceConversion {
     // Strategy (= Compositor)

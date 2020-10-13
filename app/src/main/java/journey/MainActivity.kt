@@ -1,4 +1,4 @@
-package com.momoproductions.journey
+package journey
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle

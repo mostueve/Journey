@@ -1,6 +1,5 @@
-package com.momoproductions.journey
+package journey
 
-import android.content.Context
 import org.junit.Test
 
 import org.junit.Assert.*
