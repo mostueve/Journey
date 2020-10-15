@@ -17,7 +17,7 @@ class ConversionFragment : Fragment(), AdapterView.OnItemSelectedListener {
     private lateinit var astronomicalUnit : AstronomicalUnit
     private lateinit var lightyear : Lightyear
     private lateinit var parsec : Parsec
-    private lateinit var unitDictionary : HashMap<String, DistanceConversion>
+    private lateinit var unitDictionary : HashMap<String, IDistanceConversion>
     private var currentSelectedUnit: String = "Parsec"
     private var currentEnteredAmount: Double = 0.0
 

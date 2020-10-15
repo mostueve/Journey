@@ -1,6 +1,7 @@
 package journey
 
-interface DistanceConversion {
+
+interface IDistanceConversion {
     // Strategy (= Compositor)
     fun fromMeter(n : Double) : Double
     fun toMeter(n : Double) : Double
@@ -10,7 +11,25 @@ abstract class Converter {
     abstract fun convert(n : Double) : Double
 }
 
-class Parsec : DistanceConversion {
+class DistanceConverter constructor(
+    converterInput : IDistanceConversion,
+    converterOutput : IDistanceConversion) : Converter() {
+
+    // Context (= Composition)
+    private var converterInput : IDistanceConversion
+    private var converterOutput : IDistanceConversion
+
+    init {
+        this.converterInput = converterInput
+        this.converterOutput = converterOutput
+    }
+
+    override fun convert(n: Double): Double {
+        return converterOutput.toMeter(converterInput.fromMeter(n))
+    }
+}
+
+class Parsec : IDistanceConversion {
     // Concrete Strategy
     private val conversionFactor = 3.0857e16
 
@@ -23,7 +42,7 @@ class Parsec : DistanceConversion {
     }
 }
 
-class Lightyear : DistanceConversion {
+class Lightyear : IDistanceConversion {
     // Concrete Strategy
     private val conversionFactor = 9.4607304725808e15
 
@@ -36,7 +55,7 @@ class Lightyear : DistanceConversion {
     }
 }
 
-class AstronomicalUnit : DistanceConversion {
+class AstronomicalUnit : IDistanceConversion {
     // Concrete Strategy
     private val conversionFactor = 1.495978707e11
 
@@ -49,7 +68,7 @@ class AstronomicalUnit : DistanceConversion {
     }
 }
 
-class Kilometer : DistanceConversion {
+class Kilometer : IDistanceConversion {
     private val conversionFactor = 1.0e3
 
     override fun fromMeter(n : Double): Double {
@@ -61,7 +80,7 @@ class Kilometer : DistanceConversion {
     }
 }
 
-class Meter : DistanceConversion {
+class Meter : IDistanceConversion {
     private val conversionFactor = 1.0
 
     override fun fromMeter(n : Double): Double {
@@ -73,20 +92,3 @@ class Meter : DistanceConversion {
     }
 }
 
-class DistanceConverter constructor(
-    converterInput : DistanceConversion,
-    converterOutput : DistanceConversion) : Converter() {
-
-    // Context (= Composition)
-    private var converterInput : DistanceConversion
-    private var converterOutput : DistanceConversion
-
-    init {
-        this.converterInput = converterInput
-        this.converterOutput = converterOutput
-    }
-
-    override fun convert(n: Double): Double {
-        return converterOutput.toMeter(converterInput.fromMeter(n))
-    }
-}
