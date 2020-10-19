@@ -1,5 +1,0 @@
-package journey
-
-class ConverterFactory {
-
-}

@@ -1,4 +1,4 @@
-package journey
+package com.motek.journey
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
