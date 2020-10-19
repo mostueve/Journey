@@ -7,7 +7,7 @@
 
     <fragment
         android:id="@+id/mainFragment"
-        android:name="journey.MainFragment"
+        android:name="com.motek.journey.MainFragment"
         android:label="fragment_main"
         tools:layout="@layout/fragment_main" >
         <action
@@ -22,17 +22,17 @@
     </fragment>
     <fragment
         android:id="@+id/conversionFragment"
-        android:name="journey.ConversionFragment"
+        android:name="com.motek.journey.ConversionFragment"
         android:label="fragment_conversion"
         tools:layout="@layout/fragment_conversion" />
     <fragment
         android:id="@+id/journeyFragment"
-        android:name="journey.JourneyFragment"
+        android:name="com.motek.journey.JourneyFragment"
         android:label="fragment_journey"
         tools:layout="@layout/fragment_journey" />
     <fragment
         android:id="@+id/infoFragment"
-        android:name="journey.InfoFragment"
+        android:name="com.motek.journey.InfoFragment"
         android:label="fragment_info"
         tools:layout="@layout/fragment_info" />
 </navigation>

@@ -1,4 +1,4 @@
-package journey
+package com.motek.journey
 
 
 interface IDistanceConversion {

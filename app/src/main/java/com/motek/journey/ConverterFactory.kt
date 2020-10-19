@@ -1,11 +1,15 @@
-package journey
+package com.motek.journey
 
-class ConverterFactory {
+abstract class ConverterFactory {
+    abstract fun createConverter(inputUnitDescriptor: String, outputUnitDescriptor: String) : Converter
+}
+
+class DistanceConverterFactory : ConverterFactory() {
 
     private lateinit var inputUnit : IDistanceConversion
     private lateinit var outputUnit : IDistanceConversion
 
-    public fun buildConverter(inputUnitDescriptor: String, outputUnitDescriptor: String) : Converter {
+    override fun createConverter(inputUnitDescriptor: String, outputUnitDescriptor: String) : Converter {
         when (inputUnitDescriptor) {
             "Parsec" -> inputUnit = Parsec()
             "Lightyear" -> inputUnit = Lightyear()
@@ -26,6 +30,7 @@ class ConverterFactory {
 
         return DistanceConverter(inputUnit, outputUnit)
     }
+
 
 //    private fun makeUnit(unitDescriptor: String) : IDistanceConversion {
 //        when (unitDescriptor) {
