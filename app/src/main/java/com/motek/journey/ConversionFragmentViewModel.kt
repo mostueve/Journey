@@ -4,8 +4,11 @@ import androidx.lifecycle.ViewModel
 
 class ConversionFragmentViewModel : ViewModel() {
 
+    // access resources -> only works from correct context
+    // var parsec = getResources().getString(R.string.parsec)
+
     private var convertedValuesDictionary = HashMap<String, Double>()
-    private val distanceConverterFactory = DistanceConverterFactory()
+    private val distanceConverterFactory = DistanceUnitConverterFactory()
     private var currentSelectedItem : String = ""
     private var amountToConvert : Double = 0.0
 
@@ -39,23 +42,5 @@ class ConversionFragmentViewModel : ViewModel() {
             convertedValuesDictionary.put(unitIdentifier, converter.convert(amountToConvert))
         }
     }
-
-//    fun buildConversionDictionary() {
-//        val inputUnit = convertedValuesDictionary.get(this.currentSelectedItem)
-//        for (dictEntry in convertedValuesDictionary) {
-//            val currentItem = convertedValuesDictionary.get(dictEntry.key)
-//            if (inputUnit != null && currentItem != null) {
-//                val converter = DistanceConverter(inputUnit, currentItem)
-//                val convertedValue = this.amountToConvert.let { converter.convert(it) }
-//                when (dictEntry.key) {
-//                    "Parsec" -> result_field_parsec?.setText(convertedValue.toString())
-//                    "Lightyear" -> result_field_lightyear?.setText(convertedValue.toString())
-//                    "Meter" -> result_field_meter?.setText(convertedValue.toString())
-//                    "Kilometer" -> result_field_kilometer?.setText(convertedValue.toString())
-//                    "AU" -> result_field_astronomicalunit?.setText(convertedValue.toString())
-//                }
-//            }
-//        }
-//    }
 
 }

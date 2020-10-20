@@ -5,6 +5,7 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.fragment.app.viewModels
 
 class JourneyFragment : Fragment() {
     // TODO
@@ -20,6 +21,9 @@ class JourneyFragment : Fragment() {
      *      + Arcturus
      *      + Polaris
      */
+
+    private val viewModel by viewModels<JourneyFragmentViewModel>()
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 

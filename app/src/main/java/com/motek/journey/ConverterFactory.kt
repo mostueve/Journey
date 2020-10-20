@@ -4,7 +4,7 @@ abstract class ConverterFactory {
     abstract fun createConverter(inputUnitDescriptor: String, outputUnitDescriptor: String) : Converter
 }
 
-class DistanceConverterFactory : ConverterFactory() {
+class DistanceUnitConverterFactory : ConverterFactory() {
 
     private lateinit var inputUnit : IDistanceConversion
     private lateinit var outputUnit : IDistanceConversion
@@ -24,21 +24,31 @@ class DistanceConverterFactory : ConverterFactory() {
             "Kilometer" -> outputUnit = Kilometer()
             "Meter" -> outputUnit = Meter()
         }
-
-//        inputUnit = makeUnit(inputUnitDescriptor)
-//        outputUnit = makeUnit(outputUnitDescriptor)
-
         return DistanceConverter(inputUnit, outputUnit)
     }
+}
 
+class AlternateDistanceUnitConverterFactory {
+    private lateinit var GeneratedUnit : IDistanceConversion
 
-//    private fun makeUnit(unitDescriptor: String) : IDistanceConversion {
-//        when (unitDescriptor) {
-//            "Parsec" -> return Parsec()
-//            "Lightyear" -> return Lightyear()
-//            "AU" -> return AstronomicalUnit()
-//            "Kilometer" -> return Kilometer()
-//            "Meter" -> return Meter()
-//        }
-//    }
+    fun createUnit(unitDescriptor : String) : IDistanceConversion {
+        when (unitDescriptor) {
+            "Parsec" -> GeneratedUnit = Parsec()
+            "Lightyear" -> GeneratedUnit = Lightyear()
+            "AU" -> GeneratedUnit = AstronomicalUnit()
+            "Kilometer" -> GeneratedUnit = Kilometer()
+            "Meter" -> GeneratedUnit = Meter()
+        }
+        return GeneratedUnit
+    }
+}
+
+class VelocityUnitConverterFactory : ConverterFactory() {
+    override fun createConverter(
+        inputUnitDescriptor: String,
+        outputUnitDescriptor: String
+    ): Converter {
+        TODO("Not yet implemented")
+    }
+
 }

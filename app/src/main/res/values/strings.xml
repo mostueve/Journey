@@ -5,12 +5,12 @@
     <string name="title_home">Home</string>
     <string name="title_info_fragment">About this app</string>
     <string name="title_conversion_fragment">Converter</string>
-    <string name="title_journey_fragment">Go on a com.motek.journey</string>
+    <string name="title_journey_fragment">Go on a journey</string>
     <string name="info_text_conversion">Select a distance unit and enter a factor</string>
     <string name="label_text_parsec">Parsec</string>
     <string name="label_text_lightyear">Lightyear</string>
     <string name="label_text_meter">Meter</string>
     <string name="label_text_astronomicalunit">AU</string>
     <string name="label_text_kilometer">Kilometer</string>
-    <string name="info_text">Welcome to the Journey App! With this app, you can convert interstellar distance measures, like parsecs and lightyears, into one another. Furthermore, you can calculate how long a com.motek.journey will take, given a distance and speed. You can also choose from some of the known locations in the Milky Way Galaxy. </string>
+    <string name="info_text">Welcome to the Journey App! With this app, you can convert interstellar distance measures, like parsecs and lightyears, into one another. Furthermore, you can calculate how long a journey will take, given a distance and speed. You can also choose from some of the known locations in the Milky Way Galaxy. </string>
 </resources>
