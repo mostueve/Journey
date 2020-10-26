@@ -14,8 +14,8 @@ interface IDistanceConversion : IUnitConversion {
 }
 
 interface IVelocityConversion : IUnitConversion {
-    fun fromWarpfactor(n : Double) : Double
-    fun toWarpfactor(n : Double) : Double
+    fun fromMeterPerSecond(n : Double) : Double
+    fun toMeterPerSecond(n : Double) : Double
 }
 
 interface ITravelTimeConversion : IUnitConversion {
@@ -52,21 +52,21 @@ return LIGHTSPEED * warpfactor.pow(exponent);
 
 
 class BasicWarpfactor : IVelocityConversion {
-    override fun fromWarpfactor(n: Double): Double {
+    override fun fromMeterPerSecond(n: Double): Double {
         TODO("Not yet implemented")
     }
 
-    override fun toWarpfactor(n: Double): Double {
+    override fun toMeterPerSecond(n: Double): Double {
         TODO("Not yet implemented")
     }
 }
 
 class IntricateWarpfactor : IVelocityConversion {
-    override fun fromWarpfactor(n: Double): Double {
+    override fun fromMeterPerSecond(n: Double): Double {
         TODO("Not yet implemented")
     }
 
-    override fun toWarpfactor(n: Double): Double {
+    override fun toMeterPerSecond(n: Double): Double {
         TODO("Not yet implemented")
     }
 }

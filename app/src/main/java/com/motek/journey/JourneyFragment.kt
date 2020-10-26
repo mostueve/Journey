@@ -17,9 +17,16 @@ class JourneyFragment : Fragment() {
      *  - normal or complicated wf calc
      *  - known destinations Spinner
      *      + Sirius
-     *      + Betelgeuze
+     *      + Betelgeuse
      *      + Arcturus
      *      + Polaris
+     *      + HR 8799 ~ 129 Ly
+     *      + Barnard
+     *      + Deneb
+     *      + Vega
+     *      + Altair
+     *      + Wolf 359
+     *      + PSR B1620−26 ~ 12400 Ly
      */
 
     private val viewModel by viewModels<JourneyFragmentViewModel>()
