@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="star_distances_array">
+        <item>@string/distance_alcor</item>
+        <item>@string/distance_alnilam</item>
+        <item>@string/distance_alnitak</item>
+        <item>@string/distance_altair</item>
+        <item>@string/distance_arcturus</item>
+        <item>@string/distance_barnard</item>
+        <item>@string/distance_betelgeuse</item>
+        <item>@string/distance_deneb</item>
+        <item>@string/distance_hr8799</item>
+        <item>@string/distance_mintaka</item>
+        <item>@string/distance_mizar</item>
+        <item>@string/distance_polaris</item>
+        <item>@string/distance_psrB162026</item>
+        <item>@string/distance_rigel</item>
+        <item>@string/distance_sirius</item>
+        <item>@string/distance_vega</item>
+        <item>@string/distance_wolf359</item>
+    </string-array>
+
+    <string-array name="star_names_array">
+        <item>@string/name_alcor</item>
+        <item>@string/name_alnilam</item>
+        <item>@string/name_alnitak</item>
+        <item>@string/name_altair</item>
+        <item>@string/name_arcturus</item>
+        <item>@string/name_barnard</item>
+        <item>@string/name_betelgeuse</item>
+        <item>@string/name_deneb</item>
+        <item>@string/name_hr8799</item>
+        <item>@string/name_mintaka</item>
+        <item>@string/name_mizar</item>
+        <item>@string/name_polaris</item>
+        <item>@string/name_psrB162026</item>
+        <item>@string/name_rigel</item>
+        <item>@string/name_sirius</item>
+        <item>@string/name_vega</item>
+        <item>@string/name_wolf359</item>
+    </string-array>
+</resources>

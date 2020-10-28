@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="distance_sirius">8.611</string>
+    <string name="distance_betelgeuse">642.5</string>
+    <string name="distance_rigel">860</string>
+    <string name="distance_alnitak">1260</string>
+    <string name="distance_alnilam">2000</string>
+    <string name="distance_mintaka">1200</string>
+    <string name="distance_arcturus">36.66</string>
+    <string name="distance_polaris">433</string>
+    <string name="distance_hr8799">127.2</string>
+    <string name="distance_barnard">5.978</string>
+    <string name="distance_deneb">2.616</string>
+    <string name="distance_vega">25.05</string>
+    <string name="distance_altair">16.73</string>
+    <string name="distance_wolf359">7.795</string>
+    <string name="distance_psrB162026">12390</string>
+    <string name="distance_mizar">82.9</string>
+    <string name="distance_alcor">81.7</string>
+
+    <string name="name_sirius">Sirius</string>
+    <string name="name_betelgeuse">Betelgeuse</string>
+    <string name="name_rigel">Rigel</string>
+    <string name="name_alnitak">Alnitak</string>
+    <string name="name_alnilam">Alnilam</string>
+    <string name="name_mintaka">Mintaka</string>
+    <string name="name_arcturus">arcturus</string>
+    <string name="name_polaris">Polaris</string>
+    <string name="name_hr8799">HR8799</string>
+    <string name="name_barnard">Barnard\'s Star</string>
+    <string name="name_deneb">Deneb</string>
+    <string name="name_vega">Vega</string>
+    <string name="name_altair">Altair</string>
+    <string name="name_wolf359">Wolf 359</string>
+    <string name="name_psrB162026">PSR B1620−26</string>
+    <string name="name_mizar">Mizar</string>
+    <string name="name_alcor">Alcor</string>
+</resources>
